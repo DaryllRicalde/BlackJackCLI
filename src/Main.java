@@ -6,7 +6,7 @@ public class Main {
 		System.out.println("Welcome to the BlackJack Project!");
 		// Scanner object
 		Scanner input = new Scanner(System.in);	
-		System.out.println("Before we start, please enter your name: ");
+		System.out.print("Before we start, please enter your name: ");
 		String playerName = input.nextLine();
 		Player player = new Player(playerName);
 		// TODO: assert that playerName is not empty

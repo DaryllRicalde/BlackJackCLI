@@ -8,5 +8,8 @@ public class Hand {
 	
 	// A Hand may hold many cards if the dealer and player wishes to draw more than once
 	ArrayList<Card> cards = new ArrayList<Card>();
-
+	
+	public void addToHand(Card card) {
+		this.cards.add(card);
+	}
 }

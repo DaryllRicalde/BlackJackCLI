@@ -36,12 +36,13 @@ import java.util.ArrayList;
 
 public class Game {
 	private Player player;
+	private Dealer dealer;
 	private Deck deck;
 	private ArrayList<Person> personsPlaying = new ArrayList<Person>();
 	
 	public Game(Player player) {
 		this.player = player;
-		Dealer dealer = new Dealer(50000);
+		this.dealer = new Dealer(50000);
 		personsPlaying.add(dealer);
 		this.deck = new Deck();
 	}
@@ -50,6 +51,8 @@ public class Game {
 		System.out.println("Hi " + player.getName() + ", welcome to BlackJack");
 		moneyStatus();
 		deck.printCards();
+		deck.removeCard();
+		System.exit(0);
 	}
 	
 	// Check dealer's and player's money

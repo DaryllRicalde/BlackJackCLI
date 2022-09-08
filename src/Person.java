@@ -27,4 +27,6 @@ public abstract class Person {
 	public double getBalance() {
 		return this.money;
 	}
+	
+	// draw - remove card from deck and add to hand
 }

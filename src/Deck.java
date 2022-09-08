@@ -1,8 +1,8 @@
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Deck {
-	final int CARDS_COUNT = 52; 
 	String[] suits = {"Spade","Clubs","Hearts","Diamond"};
 	String[] faces = {"King", "Queen", "Jack", "Ace"};
 	ArrayList<Card> cards = new ArrayList<Card>();
@@ -16,24 +16,27 @@ public class Deck {
 		
 		// for normal cards
 		for(int j = 0; j < suits.length; j++) {
-			for(int i = 1; i < 11; i++) {
+			for(int i = 2; i < 11; i++) {
 				addCard(suits[j], Integer.toString(i), i);
 			}
+			
 			// for face cards including Ace
 			for(String f : faces) {
+				int val;
 				if(!(f.contentEquals("Ace"))) {
-					addCard(suits[j], f, 10);
+					val = 10;
 				}
 				else {
-					addCard(suits[j], f, 11);
+					val = 11;
 				}
+				addCard(suits[j], f, val);
 			}
 		}
 	}
 	
 	public void printCards() {
 		for(Card c : cards) {
-			System.out.println(c.getRankName() + " of " + c.getSuit() + " " + c.getRankValue());;
+			System.out.println(c.getRankName() + " of " + c.getSuit() + " " + c.getRankValue());
 		}
 	}
 
@@ -42,9 +45,19 @@ public class Deck {
 		this.cards.add(card);
 	}
 	
+	// get a random card from the deck and remove it
+	public Card removeCard() {
+		Random rand = new Random();
+		int rand_index = rand.nextInt(cards.size());	// generate a random index
+		Card card = cards.get(rand_index);				// remove the Card corresponding to that index
+		System.out.println("Removing Card: " + card.getRankName() + " of " +  card.getSuit());
+		cards.remove(rand_index);
+		System.out.println("Remaining cards: " + getCardCount());
+		return card;
+	}
 	
 	public int getCardCount() {
-		return CARDS_COUNT;
+		return this.cards.size();
 	}
 	
 }
