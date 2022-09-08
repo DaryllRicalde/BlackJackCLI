@@ -6,4 +6,9 @@ public class Dealer extends Person {
 	public Dealer(double money) {
 		super(money);
 	}
+	
+	@Override
+	public String getName() {
+		return this.name;
+	}
 }

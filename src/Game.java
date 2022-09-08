@@ -37,7 +37,7 @@ import java.util.ArrayList;
 public class Game {
 	private Player player;
 	private Deck deck;
-	private ArrayList<Person> personsPlaying;
+	private ArrayList<Person> personsPlaying = new ArrayList<Person>();
 	
 	public Game(Player player) {
 		this.player = player;
@@ -48,11 +48,15 @@ public class Game {
 	
 	public void start() {
 		System.out.println("Hi " + player.getName() + ", welcome to BlackJack");
+		moneyStatus();
+		deck.printCards();
 	}
 	
 	// Check dealer's and player's money
 	public void moneyStatus() {
-		
+		for(Person p : personsPlaying) {
+			System.out.println(p.getName() + " has " + "$"+p.getBalance());
+		}
 	}
 	
 	// add a player to the table
