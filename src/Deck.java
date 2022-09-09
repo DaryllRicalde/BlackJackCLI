@@ -13,7 +13,6 @@ public class Deck {
 	//		draw() => draw a card from the deck, maybe this is a Human class func?
 	
 	public Deck() {
-		
 		// for normal cards
 		for(int j = 0; j < suits.length; j++) {
 			for(int i = 2; i < 11; i++) {

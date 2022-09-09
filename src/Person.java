@@ -29,4 +29,7 @@ public abstract class Person {
 	}
 	
 	// draw - remove card from deck and add to hand
+	public void hit(Card card) {
+		this.hand.addToHand(card);
+	}
 }
