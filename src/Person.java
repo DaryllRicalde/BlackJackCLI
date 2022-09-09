@@ -14,10 +14,12 @@ public abstract class Person {
 	public Person(String name) {
 		this.name = name;
 		this.money = 500.0;		// let any normal person start with 500 dollars
+		this.hand = new Hand();
 	}
 	
 	public Person(double money) {
 		this.money = money;
+		this.hand = new Hand();
 	}
 	
 	public String getName() {
@@ -28,8 +30,14 @@ public abstract class Person {
 		return this.money;
 	}
 	
+	public Hand getHand() {
+		return this.hand;
+	}
+	
 	// draw - remove card from deck and add to hand
-	public void hit(Card card) {
+	public void draw(Deck deck) {
+		Card card = deck.removeCard();		// Draw a random card from the deck
 		this.hand.addToHand(card);
 	}
+	
 }

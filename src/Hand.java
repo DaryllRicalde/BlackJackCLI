@@ -10,7 +10,7 @@ public class Hand {
 	// to draw more than once
 	
 	ArrayList<Card> cards = new ArrayList<Card>();
-	
+		
 	public void addToHand(Card card) {
 		this.cards.add(card);
 	}

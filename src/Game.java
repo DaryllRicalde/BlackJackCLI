@@ -49,10 +49,23 @@ public class Game {
 	
 	public void start() {
 		System.out.println("Hi " + player.getName() + ", welcome to BlackJack");
-		moneyStatus();
-		deck.printCards();
-		deck.removeCard();
+		for(int i = 0; i < 2; i++) {
+			for(Person p : personsPlaying) {
+				System.out.println(p.getName());
+				p.draw(this.deck);
+			}
+		}
+		
+		//moneyStatus();
+		//deck.printCards();
+		//deck.removeCard();
 		System.exit(0);
+	}
+	
+	public void printPlayersHands() {
+		for(Person p : personsPlaying) {
+			p.getHand().printHand();
+		}
 	}
 	
 	// Check dealer's and player's money
