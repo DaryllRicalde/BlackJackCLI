@@ -15,5 +15,5 @@ The implementations of the classes are located in src/
 ## How to play
 ```
 cd src/
-javac Main.java
+java Main.java
 ```
