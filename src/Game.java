@@ -15,6 +15,7 @@
  * ----------------
  * 1st phase
  * - The player gets two cards
+ * 	TODO: Implement functionality of hiding dealer's second card
  * - The dealer gets one card face up and another face down
  * 2nd phase (immediate wins)
  * 
@@ -49,22 +50,28 @@ public class Game {
 	
 	public void start() {
 		System.out.println("Hi " + player.getName() + ", welcome to BlackJack");
+		// Deal two cards to player and dealer
 		for(int i = 0; i < 2; i++) {
 			for(Person p : personsPlaying) {
-				System.out.println(p.getName());
+				System.out.println(p.getName() + " is drawing from the deck");
 				p.draw(this.deck);
 			}
 		}
+		printPlayersHands();
+		Hand dealerHand = this.dealer.getHand();
 		
-		//moneyStatus();
-		//deck.printCards();
-		//deck.removeCard();
+		// IF the dealer starts with 21, the player loses automatically before they even get a chance to hit or stand
+		if(dealerHand.handTotal() == 21) {
+			System.out.println("The dealer has " + dealerHand.handTotal() + " and hits blackjack. You lose.");
+		}
 		System.exit(0);
 	}
 	
 	public void printPlayersHands() {
 		for(Person p : personsPlaying) {
+			System.out.println(p.getName()+ " has: ");
 			p.getHand().printHand();
+			System.out.println(p.getHand().handTotal());
 		}
 	}
 	

@@ -49,9 +49,9 @@ public class Deck {
 		Random rand = new Random();
 		int rand_index = rand.nextInt(cards.size());	// generate a random index
 		Card card = cards.get(rand_index);				// remove the Card corresponding to that index
-		System.out.println("Removing Card: " + card.getRankName() + " of " +  card.getSuit());
+//		System.out.println("Removing Card: " + card.getRankName() + " of " +  card.getSuit());
 		cards.remove(rand_index);
-		System.out.println("Remaining cards: " + getCardCount());
+//		System.out.println("Remaining cards: " + getCardCount());
 		return card;
 	}
 	
